@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    position: relative;
+}
+
+.shadow {
+    width: 150px;
+    height: 50px;
+    background: #000;
+    opacity: 0.5;
+    position: absolute;
+    bottom: 0;
+    filter: blur(10px);
+}
+
+.eye {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 20px 10px #000;
+}
