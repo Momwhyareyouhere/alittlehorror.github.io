@@ -1,8 +1,16 @@
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
 function changeEyeColor() {
     const eye = document.getElementById('eye');
-    const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+    const randomColor = getRandomColor();
     eye.style.backgroundColor = randomColor;
 }
 
-// Change eye color every 2 seconds (adjust the interval as needed)
 setInterval(changeEyeColor, 2000);
