@@ -14,3 +14,6 @@ function changeEyeColor() {
 }
 
 setInterval(changeEyeColor, 2000);
+
+const monster = document.getElementById('monster');
+monster.style.backgroundImage = "url('horrifying_monster.png')";
