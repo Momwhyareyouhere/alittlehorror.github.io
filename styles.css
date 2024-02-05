@@ -22,6 +22,20 @@ body {
     filter: blur(10px);
 }
 
+.monster {
+    width: 200px;
+    height: 200px;
+    background-color: #333;
+    border-radius: 50%;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 20px 10px #000;
+    background-image: url('monster.png'); /* Add a scary monster image */
+    background-size: cover;
+}
+
 .eye {
     width: 100px;
     height: 100px;
