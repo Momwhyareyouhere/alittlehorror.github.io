@@ -1,36 +1,22 @@
-function getRandomColor() {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}
+document.addEventListener("mousemove", (e) => {
+    const { clientX: mouseX, clientY: mouseY } = e;
+    
+    const eye = document.getElementById("eye");
+    const eyeRect = eye.getBoundingClientRect();
+    
+    const eyeX = eyeRect.left + eyeRect.width / 2;
+    const eyeY = eyeRect.top + eyeRect.height / 2;
+    
+    const deltaX = mouseX - eyeX;
+    const deltaY = mouseY - eyeY;
+    
+    const angle = Math.atan2(deltaY, deltaX);
+    
+    const distance = Math.min(eyeRect.width / 4, eyeRect.height / 4);
+    
+    const eyePosX = eyeX + Math.cos(angle) * distance;
+    const eyePosY = eyeY + Math.sin(angle) * distance;
+    
+    eye.style.transform = `translate(${eyePosX - eyeRect.width / 2}px, ${eyePosY - eyeRect.height / 2}px)`;
+});
 
-function createMonster() {
-    const monster = document.getElementById('monster');
-    monster.innerHTML = ''; 
-
-
-    const eye = document.createElement('div');
-    eye.className = 'monster-eye';
-    eye.style.backgroundColor = getRandomColor();
-
-    const blood = document.createElement('div');
-    blood.className = 'monster-blood';
-
-    const knife = document.createElement('div');
-    knife.className = 'monster-knife';
-
-
-    monster.appendChild(eye);
-    monster.appendChild(blood);
-    monster.appendChild(knife);
-
-
-    setInterval(() => {
-        eye.style.backgroundColor = getRandomColor();
-    }, 2000);
-}
-
-createMonster();
